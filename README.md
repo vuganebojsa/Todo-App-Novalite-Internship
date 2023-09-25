@@ -1,5 +1,9 @@
 # Nebojsa Vuga Internship
 
+# Whats it about
+
+This app was created using Angular for frontend and .net web api for backend. Database used was a local sql server.
+The app itself creates todo's, todo reminders, attachments(files added to azure blob storage), uses authentication with azure AD 
 
 ## How to run
 
