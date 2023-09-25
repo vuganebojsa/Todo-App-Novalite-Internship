@@ -1,0 +1,26 @@
+.fullscreen-container {
+    
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    
+  }
+  
+  .background-image {
+    background-attachment: fixed;
+  background-size: cover;
+  }
+  
+  .centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+  }
+  h1{
+    font-size: 4rem;
+  }

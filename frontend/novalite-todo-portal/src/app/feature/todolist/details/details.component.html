@@ -1,0 +1,108 @@
+<div class="row m-5 text-center details" *ngIf="isContentLoaded || isNew">
+
+    <div class="col-md-6 col-12 d-flex justify-content-start">
+        <div class="row" *ngIf="!isNew">
+            <div class="col-12 mb-3">
+                <button type="button" (click)="createReminder()" class="novalite-button">Create Reminder</button>
+            </div>
+            <div class="col-12 mb-3" *ngIf="showCreateReminder">
+                <app-create-reminder [todoListId]="this.todoList.id"></app-create-reminder>
+            </div>
+        </div>
+      
+    </div>
+    <div class="col-md-6 col-12 d-flex justify-content-end">
+
+        <div class="mb-3">
+            <button type="button" (click)="goBack()" class="novalite-button">Go Back</button>
+        </div>
+    </div>
+    <div class="col-md-6 col-12 dark-border p-3 m-2">
+        <form details (ngSubmit)="save()" [formGroup]="detailsForm">
+            <div class="row">
+
+                <div class="col-md-12 col-12">
+                    <h1 class="reg-lbl mb-3" *ngIf="isNew">Create a ToDo List</h1>
+                    <h1 class="reg-lbl mb-3" *ngIf="!isNew">Update a ToDo List</h1>
+                    <div class="row">
+                
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="title" class="label-reg mb-1">Title</label>
+                                <input type="text" formControlName="title" class="form-control" id="title">
+                            </div>
+
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="description" class="label-reg mb-1">Description</label>
+                                <textarea formControlName="description" class="form-control" id="description" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="mb-3 text-center">
+                                <button type="submit" class="novalite-button">Save</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="col-md-5 col-12 dark-border m-2" *ngIf="!isNew">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <h1 class="reg-lbl mb-3">Add Item</h1>
+               
+                
+            </div>
+            <div class="col-12">
+                <app-add-item [toDoList]="this.todoList" (submitted)="handleChildSubmit($event)"></app-add-item>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h4>Items</h4>
+                <div class="row mt-4 items-display text-center">
+                    <div class="col-12 dark-border my-1 py-1" *ngFor="let item of this.todoList.toDoItems.$values;trackBy: trackItems">
+                        <app-item-card [toDoListId]="this.todoList.id" [toDoListItem]="item"></app-item-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="row">
+            <div class="col-md-6 col-12 dark-border m-2" *ngIf="!isNew">
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <h1 class="reg-lbl mb-3">Add Attachment</h1>
+                       
+                        
+                    </div>
+                    <div class="col-12">
+                        <app-add-attachment [toDoList]="this.todoList" (submitted)="handleAttachmentSubmit($event)"></app-add-attachment>
+        
+                    </div>
+                </div>
+                <div class="row" *ngIf="this.todoList.toDoAttachments !== null && this.todoList.toDoAttachments !== undefined">
+                    <div class="col-12" >
+                        <h4>Attachments</h4>
+                        <h6>Click on an attachment to download it</h6>
+                        <div class="row mt-4 items-display text-center">
+                            <div class="col-12 dark-border my-1 py-1" *ngFor="let item of this.todoList.toDoAttachments.$values;trackBy: trackAttachments">
+                                <app-attachment-card [todolistId]="this.todoList.id" [todoAttachment]="item"></app-attachment-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

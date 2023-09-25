@@ -1,0 +1,22 @@
+<form item (ngSubmit)="save()" [formGroup]="itemForm">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-warning" role="alert" *ngIf="hasError">
+                {{this.errorMsg}}
+              </div>
+        </div>
+        <div class="col-12">
+            <div class="mb-3">
+                <label for="item" class="label-reg mb-1">Content</label>
+                <input type="text" formControlName="item" class="form-control" id="item">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="mb-3 text-center">
+                <button type="submit" class="novalite-button">Add</button>
+            </div>
+        </div>
+    </div>
+    
+</form>

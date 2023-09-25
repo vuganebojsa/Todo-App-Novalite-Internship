@@ -1,0 +1,19 @@
+<div class="row m-3">
+    <div class="col-md-6 col-12 text-left dark-border p-3">
+        <h4 class="my-2">Your Information</h4>
+        <h4>Email: <b>{{profileEmail}}</b></h4>
+        <h4 *ngIf="profileName !== 'undefined'">Account Name: <b>{{profileName}}</b></h4>
+        <h4 *ngIf="profileName === 'undefined'">No account name</h4>
+    </div>
+</div>
+
+<div class="row text-center m-3" *ngIf="role==='1'">
+
+    <div class="col-12">
+        <h1>Users</h1>
+    </div>
+
+    <div class="col-12">
+        <app-users-display></app-users-display>
+    </div>
+</div>

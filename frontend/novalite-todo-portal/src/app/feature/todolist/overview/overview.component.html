@@ -1,0 +1,30 @@
+<div *ngIf="isContentLoaded" class="m-5 text-center">
+
+<div class="row text-center">
+    <div class="col-12">
+        <h2>ToDo Lists</h2>
+    </div>
+</div>
+<div class="row text-center">
+    <div class="col-md-4 col-6 pb-3 d-flex">
+            <button type="button" class="novalite-button" (click)="addNewToDo()">Add new ToDo list</button>
+
+    </div>
+</div>
+
+<div class="row text-center">
+    <div class="col-md-3 col-12 m-2 card dark-border" *ngFor="let todos of this.todoLists;trackBy: trackTodos">
+        <div>       
+            <div class="row">
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="button" class="delete-button" (click)="deleteTodo(todos)">X</button>
+                </div>
+               <div class="col-12">
+                <app-card [todoList]="todos" ></app-card>
+
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

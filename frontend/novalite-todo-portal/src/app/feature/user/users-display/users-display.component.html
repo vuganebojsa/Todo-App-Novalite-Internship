@@ -1,0 +1,25 @@
+<div class="row" *ngIf="isLoaded">
+    <div class="col-12 dark-border" *ngFor="let user of users;let i = index;trackBy: trackUsers">
+        
+        <div class="row p-2 text-left">
+            <div class="col-1 mt-2">
+                <strong>#{{i + 1}}</strong>
+            </div>
+            <div class="col-5 mt-2">
+                <h5>{{user.email}}</h5>
+            </div>
+            <div class="col-5">
+                <h5>Change role: </h5>
+                <label>
+                    <input type="radio" class="mx-1" name="role{{ i }}" [(ngModel)]="users[i].role" [value]="0" (change)="onChangeRole(user)" [checked]="user.role==='0'">
+                    User
+                  </label>
+                  <label>
+                    <input type="radio" class="mx-1" name="role{{ i }}" [(ngModel)]="users[i].role" [value]="1" (change)="onChangeRole(user)" [checked]="user.role==='1'">
+                    Admin
+                  </label>
+            </div>
+        </div>
+
+    </div>
+</div>

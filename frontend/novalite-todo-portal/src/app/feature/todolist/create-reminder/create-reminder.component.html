@@ -1,0 +1,20 @@
+<div class="row dark-border p-3">
+    <div class="col-12">
+        <div class="alert alert-warning" role="alert" *ngIf="hasError">
+            {{this.errorMsg}}
+          </div>
+    </div>
+    <div class="col-md-5 col-12">
+      <label for="startDate">Set Reminder Time:</label>
+    </div>
+    <div class="col-md-6 col-12">
+      <input type="datetime-local" id="timestamp" name="timestamp"
+             value={{timestamp}} [(ngModel)]="timestamp">
+    </div>
+
+    <div class="col-11 d-flex justify-content-end">
+        <div class="mb-3">
+          <button type="button" class="novalite-button" (click)="addReminder()">Add</button>
+        </div>
+      </div>
+  </div>

@@ -1,0 +1,13 @@
+.card:hover{
+    background-color: rgba(0,0,0, 0.1);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.todoTitle{
+    text-decoration: underline;
+    
+}
+
+
+
